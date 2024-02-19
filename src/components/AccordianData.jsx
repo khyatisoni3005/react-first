@@ -1,5 +1,12 @@
 import Accordian from "./Accordian";
 import React, { useState } from 'react'
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
+
 
 export default function AccordianData() {
 
@@ -30,13 +37,49 @@ export default function AccordianData() {
 
             <h1 className='acc-heading'>faq</h1>
             {
-                accordianData.map((acData) => {
-                    return <Accordian key={acData.id} acData={acData} />
-
-
-
+                accordianData.map((acc, i) => {
+                    return (
+                        <Accordion key={i}>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                            >
+                                {acc.title}
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                {acc.dec}
+                            </AccordionDetails>
+                        </Accordion>
+                    )
                 })
             }
+            {/* <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                >
+                    Accordion 1
+                </AccordionSummary>
+                <AccordionDetails>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                </AccordionDetails>
+            </Accordion>
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2-content"
+                    id="panel2-header"
+                >
+                    Accordion 2
+                </AccordionSummary>
+                <AccordionDetails>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget.
+                </AccordionDetails>
+            </Accordion> */}
         </ React.Fragment>
     )
 }
